@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="container text-center wrapper">
+  {% if user.is_authenticated %}
+  <h1>Hello {{user.username}}</h1>
+  {% else %}
+  <h1>Login for More Details</h1>
+  {% endif %}
+</div>
+{% endblock content %}

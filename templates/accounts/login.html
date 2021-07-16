@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="card wrapper text-center">
+{% include 'accounts/messages.html' %}
+  <form method="post" class="form-signin" id="login" action="{% url 'login' %}">
+  {% csrf_token %}
+    <img
+      class="mb-4"
+      src="{% static 'img/python.png' %}"
+      alt=""
+      width="72"
+      height="72"
+    />
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="inputEmail" class="sr-only">Username</label>
+    <input
+      type="text"
+      id="inputEmail"
+      class="form-control"
+      placeholder="Username"
+      required
+      autofocus
+      name="username"
+    />
+    <br />
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input
+      type="password"
+      id="inputPassword"
+      class="form-control"
+      placeholder="Password"
+      required
+      name="password"
+    />
+    <a href="{% url 'reset_password' %}" class="m-3" style="float: right; font-size: 16px">Forgot password?</a>
+    <button class="btn btn-lg btn-primary btn-block" onclick="mySubmit(login)">
+      Sign in
+    </button type="submit">
+    <div class="sign-up mt-3 link">
+            Don't have account? <a href="{% url 'register' %}">Register</a>
+            <br>  
+    </div>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2021</p>
+  </form>
+</div>
+{% endblock content %}
